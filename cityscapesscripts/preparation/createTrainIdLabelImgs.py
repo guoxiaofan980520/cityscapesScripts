@@ -24,11 +24,14 @@ from __future__ import print_function, absolute_import, division
 import os, glob, sys
 
 # cityscapes imports
+sys.path.append( os.path.normpath( os.path.join( os.path.dirname(__file__), '..', '..' ) ) )
+
 from cityscapesscripts.helpers.csHelpers import printError
 from cityscapesscripts.preparation.json2labelImg import json2labelImg
 
 # The main method
 def main():
+    os.environ['CITYSCAPES_DATASET'] = 'D:\Downloads\chrome\gtFine_trainvaltest'
     # Where to look for Cityscapes
     if 'CITYSCAPES_DATASET' in os.environ:
         cityscapesPath = os.environ['CITYSCAPES_DATASET']
@@ -60,7 +63,7 @@ def main():
     print("Progress: {:>3} %".format( progress * 100 / len(files) ), end=' ')
     for f in files:
         # create the output filename
-        dst = f.replace( "_polygons.json" , "_labelTrainIds.png" )
+        dst = f.replace( "_polygons.json" , "_labelIds.png" )
 
         # do the conversion
         try:
