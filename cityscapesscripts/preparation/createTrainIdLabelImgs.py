@@ -31,7 +31,6 @@ from cityscapesscripts.preparation.json2labelImg import json2labelImg
 
 # The main method
 def main():
-    os.environ['CITYSCAPES_DATASET'] = 'D:\Downloads\chrome\gtFine_trainvaltest'
     # Where to look for Cityscapes
     if 'CITYSCAPES_DATASET' in os.environ:
         cityscapesPath = os.environ['CITYSCAPES_DATASET']
